@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "150919566080",
+    "firebase_url": "https://pokerhh-cef9c.firebaseio.com",
+    "project_id": "pokerhh-cef9c",
+    "storage_bucket": "pokerhh-cef9c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:150919566080:android:a14067d28a4a05c9",
+        "android_client_info": {
+          "package_name": "com.example.thomasperrin.pokerhh"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "150919566080-soo9kv2ittai0n0v9514e60tjnp3qg9l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJTgrYhylLLYHlEvRwaynpMgVfaNf2IoU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

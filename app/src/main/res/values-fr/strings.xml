@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">PokerHH</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="all">Toutes</string>
+    <string name="new_hand">Nouvelle</string>
+    <string name="yours">Les vôtres</string>
+
+    <string name="button">button</string>
+    <string name="cutoff">cutoff</string>
+    <string name="hijack">hijack</string>
+    <string name="button3">button</string>
+    <string name="button4">button</string>
+    <string name="button5">button</string>
+    <string name="button6">button</string>
+    <string name="smallblind">small blind</string>
+    <string name="bigblind">big blind</string>
+    <string name="pick_color">Choisir une couleur</string>
+    <string name="back">retour</string>
+    <string name="finish">terminé</string>
+    <string name="next">suivant</string>
+    <string name="flop">flop</string>
+    <string name="pre_flop">pre flop</string>
+    <string name="turn">turn</string>
+    <string name="river">river</string>
+    <string name="hint_price_bb">0 bb</string>
+    <string name="hint_price_cash">0 $</string>
+    <string name="hint_price">0 $</string>
+    <string name="utg">UTG</string>
+    <string name="utg1">UTG-1</string>
+    <string name="utg2">UTG-2</string>
+    <string name="utg3">UTG-3</string>
+    <string name="mp">MP</string>
+    <string name="limp">limp</string>
+    <string name="call">call</string>
+    <string name="fold">fold</string>
+    <string name="check">check</string>
+    <string name="raise">raise</string>
+    <string name="one_if_bb">(1 si en bb)</string>
+    <string name="two_to_nine">2 - 9</string>
+    <string name="nb_players">Joueurs</string>
+    <string name="big_blind">Big blind</string>
+    <string name="type_game">Type de jeu</string>
+    <string name="validate">Valider</string>
+</resources>

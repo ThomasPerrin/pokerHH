@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -33,13 +34,9 @@ class HistoryFlowFragment: BaseFragment(), HistoryFlowInteractor {
         super.onCreate(savedInstanceState)
         mModel.setInteractor(this)
 
-        (activity as NewHandActivity).mModel.history.nbPlayers = 9
-        (activity as NewHandActivity).mModel.history.bigBlind = 150
-
-        ((activity as NewHandActivity).mModel.history).board = "s2|s3|s10|ha|dk"
         mModel.history = ((activity as NewHandActivity).mModel.history)
-        mModel.nbPlayer = ((activity as NewHandActivity).mModel.history.nbPlayers)
-        mModel.priceMin = ((activity as NewHandActivity).mModel.history.bigBlind)
+        mModel.nbPlayer = ((activity as NewHandActivity).mModel.history.nbPlayers!!)
+        mModel.priceMin = HelperHistory.formatedHistoryBlindToArray(((activity as NewHandActivity).mModel.history.bigBlind!!))[1].toInt()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -97,7 +94,7 @@ class HistoryFlowFragment: BaseFragment(), HistoryFlowInteractor {
 
         if(mModel.priceMin == 0){
             action.text = getString(R.string.check)
-        } else if(mModel.priceMin == mModel.history!!.bigBlind && mModel.step == 0){
+        } else if(mModel.priceMin == HelperHistory.formatedHistoryBlindToArray(mModel.history!!.bigBlind!!)[1].toInt() && mModel.step == 0){
             action.text = getString(R.string.limp)
         } else {
             action.text = getString(R.string.call)
@@ -111,21 +108,19 @@ class HistoryFlowFragment: BaseFragment(), HistoryFlowInteractor {
             }
             1 -> {
                 if(step.text != getString(R.string.flop)) {
-                    card1.setImageResource(HelperHistory.getImageHand(mModel.history!!.board!!)[0])
-                    card2.setImageResource(HelperHistory.getImageHand(mModel.history!!.board!!)[1])
-                    card3.setImageResource(HelperHistory.getImageHand(mModel.history!!.board!!)[2])
+                    board.setFlop(HelperHistory.getImageHand(mModel.history!!.board!!),mModel.history!!.board!!.split("|"))
                     step.text = getString(R.string.flop)
                 }
             }
             2 -> {
                 if(step.text != getString(R.string.turn)) {
-                    card4.setImageResource(HelperHistory.getImageHand(mModel.history!!.board!!)[3])
+                    board.setTurn(HelperHistory.getImageHand(mModel.history!!.board!!)[3],mModel.history!!.board!!.split("|")[3])
                     step.text = getString(R.string.turn)
                 }
             }
             3 -> {
                 if(step.text != getString(R.string.river)) {
-                    card5.setImageResource(HelperHistory.getImageHand(mModel.history!!.board!!)[4])
+                    board.setTurn(HelperHistory.getImageHand(mModel.history!!.board!!)[4],mModel.history!!.board!!.split("|")[4])
                     step.text = getString(R.string.river)
                 }
             }

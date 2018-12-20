@@ -2,10 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
           package="com.example.thomasperrin.pokerhh">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
             android:name=".App"
             android:allowBackup="true"
-            android:hardwareAccelerated="false"
+            android:hardwareAccelerated="true"
             android:icon="@drawable/aces"
             android:label="@string/app_name"
             android:roundIcon="@mipmap/ic_launcher_round"
@@ -26,10 +28,12 @@
                 android:name=".ui.displayhand.DisplayHandActivity"/>
 
         <activity
-                android:name=".ui.filter.FilterActivity"/>
+                android:name=".ui.settings.SettingsActivity"/>
 
         <activity
-                android:name=".ui.newhand.NewHandActivity"/>
+                android:name=".ui.newhand.NewHandActivity"
+                android:screenOrientation="portrait"
+                android:windowSoftInputMode="stateHidden|adjustNothing"/>
 
     </application>
 

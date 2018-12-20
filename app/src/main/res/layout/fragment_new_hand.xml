@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <LinearLayout
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/background_grey"
+            android:layout_weight="1">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <LinearLayout
+            android:id="@+id/footer"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@color/colorPrimary"
+            android:orientation="horizontal">
+
+        <com.example.thomasperrin.pokerhh.components.Board
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+        </com.example.thomasperrin.pokerhh.components.Board>
+
+    </LinearLayout>
+
+</LinearLayout>

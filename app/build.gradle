@@ -8,6 +8,7 @@ project.ext {
     dagger_version = "2.15"
     room_version = "1.1.1"
     dagger_version_android = "2.16"
+    lottieVersion = "2.8.0"
 }
 
 android {
@@ -24,6 +25,10 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "FIREBASE_FIRESTORE_HISTORY", "\"history/\""
+        }
+        debug{
+            buildConfigField "String", "FIREBASE_FIRESTORE_HISTORY", "\"history_test/\""
         }
     }
 }
@@ -37,8 +42,8 @@ dependencies {
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha2'
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.1.1-alpha01'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1-alpha01'
+    androidTestImplementation 'androidx.test:runner:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
 
 
     //Firebase
@@ -72,6 +77,12 @@ dependencies {
 
     implementation 'com.github.HITGIF:TextFieldBoxes:1.4.4'
     implementation 'com.afollestad.material-dialogs:core:2.0.0-rc3'
+
+    // Glide
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
+
+    implementation "com.airbnb.android:lottie:$lottieVersion"
 
 
 }

@@ -9,7 +9,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:alpha="0.7"
+        android:alpha="0.9"
         android:background="@color/black"/>
 
 
@@ -21,308 +21,124 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintVertical_chainStyle="packed"
-            android:layout_margin="40dp"
             android:padding="10dp"
             android:gravity="center"
             android:orientation="vertical">
 
+        <com.example.thomasperrin.pokerhh.components.Board
+                android:id="@+id/board"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+        </com.example.thomasperrin.pokerhh.components.Board>
+
         <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/activity_vertical_margin"
-                app:layout_constraintLeft_toLeftOf="@dimen/activity_horizontal_margin"
-                app:layout_constraintTop_toTopOf="parent"
                 android:orientation="horizontal"
-                android:gravity="center">
-
-            <ImageView
-                    android:id="@+id/card1"
-                    android:layout_width="65dp"
-                    android:layout_height="65dp"
-                    android:padding="5dp"
-                    android:src="@drawable/blue_back"/>
-
-            <ImageView
-                    android:id="@+id/card2"
-                    android:layout_width="65dp"
-                    android:layout_height="65dp"
-                    android:padding="5dp"
-                    android:src="@drawable/blue_back"
-                    android:contentDescription="@string/all"/>
-
-            <ImageView
-                    android:id="@+id/card3"
-                    android:layout_width="65dp"
-                    android:layout_height="65dp"
-                    android:padding="5dp"
-                    android:src="@drawable/blue_back"/>
-
-            <ImageView
-                    android:id="@+id/card4"
-                    android:layout_width="65dp"
-                    android:layout_height="65dp"
-                    android:padding="5dp"
-                    android:src="@drawable/blue_back"/>
-
-            <ImageView
-                    android:id="@+id/card5"
-                    android:layout_width="65dp"
-                    android:layout_height="65dp"
-                    android:padding="5dp"
-                    android:src="@drawable/blue_back"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:background="@color/white">
-        
-            <TextView
-                    android:id="@+id/title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/pick_color"
-                    android:textSize="22sp"
-                    android:textColor="@color/colorPrimary"/>
-
-            <GridLayout
-                    android:id="@+id/gridColor"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:columnCount="2"
-                    android:rowCount="2">
-
-                <ImageView
-                        android:id="@+id/heart"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:padding="25dp"
-                        android:layout_column="0"
-                        android:src="@drawable/heart"
-                        android:layout_row="0"/>
-
-                <ImageView
-                        android:id="@+id/spade"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:padding="25dp"
-                        android:layout_column="0"
-                        android:layout_row="1"
-                        android:src="@drawable/spade"/>
-
-                <ImageView
-                        android:id="@+id/diamond"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:padding="25dp"
-                        android:layout_column="1"
-                        android:src="@drawable/diamond"
-                        android:layout_row="0"/>
-
-                <ImageView
-                        android:id="@+id/clover"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:padding="20dp"
-                        android:layout_column="1"
-                        android:src="@drawable/clover"
-                        android:layout_row="1"/>
-
-            </GridLayout>
-
-            <GridLayout
-                    android:id="@+id/gridCard"
-                    android:visibility="gone"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:columnCount="5"
-                    android:rowCount="3">
-
-                <ImageView
-                        android:id="@+id/two"
-                        android:layout_width="0dp"
-                        android:layout_columnWeight="1"
-android:padding="5dp"
-                        android:layout_height="100dp"
-                        android:scaleType="centerInside"
-                        android:layout_column="0"
-                        android:src="@drawable/heart"
-                        android:layout_row="0"/>
-
-                <ImageView
-                        android:id="@+id/three"
-                        android:layout_width="0dp"
-                        android:layout_columnWeight="1"
-android:padding="5dp"
-                        android:layout_height="100dp"
-                        android:scaleType="centerInside"
-                        android:layout_column="1"
-                        android:layout_row="0"
-                        android:src="@drawable/spade"/>
-
-                <ImageView
-                        android:id="@+id/four"
-                        android:layout_width="0dp"
-                        android:layout_columnWeight="1"
-android:padding="5dp"
-                        android:layout_height="100dp"
-                        android:scaleType="centerInside"
-                        android:layout_column="2"
-                        android:src="@drawable/diamond"
-                        android:layout_row="0"/>
-
-                <ImageView
-                        android:id="@+id/five"
-                        android:layout_width="0dp"
-                        android:layout_columnWeight="1"
-android:padding="5dp"
-                        android:layout_height="100dp"
-                        android:scaleType="centerInside"
-                        android:layout_column="3"
-                        android:src="@drawable/clover"
-                        android:layout_row="0"/>
-
-                <ImageView
-                        android:id="@+id/six"
-                        android:layout_width="0dp"
-                        android:layout_columnWeight="1"
-android:padding="5dp"
-                        android:layout_height="100dp"
-                        android:scaleType="centerInside"
-                        android:layout_column="4"
-                        android:src="@drawable/heart"
-                        android:layout_row="0"/>
-
-                <ImageView
-                        android:id="@+id/seven"
-                        android:layout_width="0dp"
-                        android:layout_columnWeight="1"
-android:padding="5dp"
-                        android:layout_height="100dp"
-                        android:scaleType="centerInside"
-                        android:layout_column="0"
-                        android:layout_row="1"
-                        android:src="@drawable/spade"/>
-
-                <ImageView
-                        android:id="@+id/height"
-                        android:layout_width="0dp"
-                        android:layout_columnWeight="1"
-android:padding="5dp"
-                        android:layout_height="100dp"
-                        android:scaleType="centerInside"
-                        android:layout_column="1"
-                        android:src="@drawable/diamond"
-                        android:layout_row="1"/>
-
-                <ImageView
-                        android:id="@+id/nine"
-                        android:layout_width="0dp"
-                        android:layout_columnWeight="1"
-android:padding="5dp"
-                        android:layout_height="100dp"
-                        android:scaleType="centerInside"
-                        android:layout_column="2"
-                        android:src="@drawable/clover"
-                        android:layout_row="1"/>
-
-                <ImageView
-                        android:id="@+id/ten"
-                        android:layout_width="0dp"
-                        android:layout_columnWeight="1"
-android:padding="5dp"
-                        android:layout_height="100dp"
-                        android:scaleType="centerInside"
-                        android:layout_column="3"
-                        android:src="@drawable/heart"
-                        android:layout_row="1"/>
-
-                <ImageView
-                        android:id="@+id/jack"
-                        android:layout_width="0dp"
-                        android:layout_columnWeight="1"
-android:padding="5dp"
-                        android:layout_height="100dp"
-                        android:scaleType="centerInside"
-                        android:layout_column="4"
-                        android:layout_row="1"
-                        android:src="@drawable/spade"/>
-
-                <ImageView
-                        android:id="@+id/queen"
-                        android:layout_width="0dp"
-                        android:layout_columnWeight="1"
-android:padding="5dp"
-                        android:layout_height="100dp"
-                        android:scaleType="centerInside"
-                        android:layout_column="1"
-                        android:src="@drawable/diamond"
-                        android:layout_row="2"/>
-
-                <ImageView
-                        android:id="@+id/king"
-                        android:layout_width="0dp"
-                        android:layout_columnWeight="1"
-android:padding="5dp"
-                        android:layout_height="100dp"
-                        android:scaleType="centerInside"
-                        android:layout_column="2"
-                        android:src="@drawable/clover"
-                        android:layout_row="2"/>
-
-                <ImageView
-                        android:id="@+id/aces"
-                        android:layout_width="0dp"
-                        android:layout_columnWeight="1"
-android:padding="5dp"
-                        android:layout_height="100dp"
-                        android:scaleType="centerInside"
-                        android:layout_column="3"
-                        android:src="@drawable/diamond"
-                        android:layout_row="2"/>
-
-            </GridLayout>
+                android:gravity="center_vertical">
 
             <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="3"
+                    android:layout_height="70dp"
+                    android:padding="5dp"
+                    android:background="@drawable/background_white_rounded_stroke_primary"
                     android:orientation="horizontal">
 
-                <FrameLayout
+                <EditText
+                        android:id="@+id/textCard1"
                         android:layout_width="0dp"
                         android:layout_weight="1"
-                        android:layout_height="wrap_content">
+                        android:layout_marginLeft="10dp"
+                        android:hint="2s"
+                        android:maxLength="3"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:inputType="text"
+                        android:imeOptions="actionNext"
+                        android:layout_marginRight="10dp"
+                        android:layout_height="wrap_content"/>
 
-                    <com.google.android.material.button.MaterialButton
-                            android:id="@+id/previous"
-                            style="@style/Widget.MaterialComponents.Button.TextButton.Dialog"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:text="@string/back"/>
-
-                </FrameLayout>
-
-                <FrameLayout
+                <EditText
+                        android:id="@+id/textCard2"
                         android:layout_width="0dp"
                         android:layout_weight="1"
-                        android:layout_height="wrap_content">
+                        android:layout_marginLeft="10dp"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:inputType="text"
+                        android:imeOptions="actionNext"
+                        android:maxLength="3"
+                        android:hint="jc"
+                        android:layout_marginRight="10dp"
+                        android:layout_height="wrap_content"/>
 
-                    <com.google.android.material.button.MaterialButton
-                            android:id="@+id/finish"
-                            style="@style/Widget.MaterialComponents.Button.TextButton.Dialog"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:text="@string/finish"/>
+                <EditText
+                        android:id="@+id/textCard3"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:inputType="text"
+                        android:imeOptions="actionNext"
+                        android:layout_marginLeft="10dp"
+                        android:maxLength="3"
+                        android:hint="3d"
+                        android:layout_marginRight="10dp"
+                        android:layout_height="wrap_content"/>
 
-                </FrameLayout>
+
 
             </LinearLayout>
+
+            <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="70dp"
+                    android:layout_margin="10dp"
+                    android:padding="5dp"
+                    android:background="@drawable/background_white_rounded_stroke_primary"
+                    android:orientation="horizontal">
+
+                <EditText
+                        android:id="@+id/textCard4"
+                        android:layout_width="match_parent"
+                        android:gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:maxLines="1"
+                        android:inputType="text"
+                        android:imeOptions="actionNext"
+                        android:hint="kh"
+                        android:maxLength="3"
+                        android:layout_marginRight="10dp"
+                        android:layout_height="wrap_content"/>
+
+            </FrameLayout>
+
+            <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="70dp"
+                    android:padding="5dp"
+                    android:background="@drawable/background_white_rounded_stroke_primary"
+                    android:orientation="horizontal">
+
+                <EditText
+                        android:id="@+id/textCard5"
+                        android:layout_width="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:maxLines="1"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:gravity="center"
+                        android:layout_marginRight="10dp"
+                        android:hint="ts"
+                        android:maxLength="3"
+                        android:layout_height="wrap_content"/>
+
+            </FrameLayout>
 
         </LinearLayout>
 

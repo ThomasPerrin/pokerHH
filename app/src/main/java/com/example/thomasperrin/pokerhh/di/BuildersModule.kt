@@ -3,7 +3,7 @@ package com.example.thomasperrin.pokerhh.di
 import com.example.thomasperrin.pokerhh.ui.account.AccountFragment
 import com.example.thomasperrin.pokerhh.ui.allhands.AllHandsFragment
 import com.example.thomasperrin.pokerhh.ui.displayhand.DisplayHandActivity
-import com.example.thomasperrin.pokerhh.ui.filter.FilterActivity
+import com.example.thomasperrin.pokerhh.ui.settings.filter.FilterFragment
 import com.example.thomasperrin.pokerhh.ui.main.MainActivity
 import com.example.thomasperrin.pokerhh.ui.myhands.MyHandsFragment
 import com.example.thomasperrin.pokerhh.ui.newhand.NewHandActivity
@@ -41,6 +41,6 @@ abstract class BuildersModule {
     internal abstract fun bindPickCardFragment(): PickCardFragment
 
     @ContributesAndroidInjector
-    internal abstract fun bindFilterActivity(): FilterActivity
+    internal abstract fun bindFilterActivity(): FilterFragment
 
 }

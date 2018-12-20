@@ -7,7 +7,8 @@ import androidx.room.InvalidationTracker
 import androidx.room.RoomDatabase
 import com.example.thomasperrin.pokerhh.data.model.History
 
-class AppDatabase: RoomDatabase() {
+@Database(entities = [History::class], version = 1, exportSchema = false)
+abstract class AppDatabase: RoomDatabase() {
 
     override fun createOpenHelper(config: DatabaseConfiguration?): SupportSQLiteOpenHelper {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
@@ -21,9 +22,7 @@ class AppDatabase: RoomDatabase() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    @Database(entities = [History::class], version = 1, exportSchema = false)
-    abstract class AppDatabase : RoomDatabase() {
-        abstract fun alarmDao(): HandDao
-    }
+    abstract fun historyDao(): HistoryDao
+
 
 }

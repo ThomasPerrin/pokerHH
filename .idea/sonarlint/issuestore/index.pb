@@ -1,0 +1,25 @@
+
+Ç
+Rapp/src/main/java/com/example/thomasperrin/pokerhh/ui/allhands/AllHandsFragment.kt,5/c/5c1123d3695978b9fec054f8fa2428b001d5666a
+É
+Sapp/src/main/java/com/example/thomasperrin/pokerhh/ui/allhands/AllHandsViewModel.kt,9/c/9cefe1768ba5608f5b6cbe41d606c7e8de6289d2
+Å
+Qapp/src/main/java/com/example/thomasperrin/pokerhh/ui/newhand/NewHandViewModel.kt,1/2/12530c6e62862aba2ace0031c0c3402ce904361a
+Ä
+Papp/src/main/java/com/example/thomasperrin/pokerhh/ui/newhand/NewHandActivity.kt,0/c/0c0ded5035fa0a5d04e38237108cbf6d8c72b67c
+Ç
+Rapp/src/main/java/com/example/thomasperrin/pokerhh/ui/newhand/NewHandInteractor.kt,c/e/cee3bcd3d64d9d245ac79e0e9ce5f5f62a26e941
+Ä
+Papp/src/main/java/com/example/thomasperrin/pokerhh/ui/myhands/MyHandsFragment.kt,7/8/7883e3720fcd8cb528e916ac333461f4656fef0b
+É
+Sapp/src/main/java/com/example/thomasperrin/pokerhh/ui/settings/SettingsViewModel.kt,a/5/a54b42d8de62a900977a3828bedefda665d71a12
+P
+ app/src/main/AndroidManifest.xml,8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e
+z
+Japp/src/main/java/com/example/thomasperrin/pokerhh/ui/main/MainActivity.kt,d/1/d1ef0d9898ebf4fb8b488fe58ae40f8e94331290
+Ç
+Rapp/src/main/java/com/example/thomasperrin/pokerhh/ui/settings/SettingsActivity.kt,6/0/603d4768028449294676a733732ed07cdf1a4c1f
+á
+Wapp/src/main/java/com/example/thomasperrin/pokerhh/ui/settings/filter/FilterFragment.kt,4/2/42b74a33fc48e5ee3a02bc310231574a11da2072
+Ñ
+Tapp/src/main/java/com/example/thomasperrin/pokerhh/ui/settings/SettingsInteractor.kt,7/b/7b6d2b905a3fa80abfe104c84afbd963320c0a67

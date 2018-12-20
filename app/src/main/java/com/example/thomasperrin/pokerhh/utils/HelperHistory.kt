@@ -3,10 +3,21 @@ package com.example.thomasperrin.pokerhh.utils
 import android.util.Log
 import com.example.thomasperrin.pokerhh.R
 import com.example.thomasperrin.pokerhh.data.model.History
+import org.intellij.lang.annotations.RegExp
 
 class HelperHistory {
 
     companion object {
+
+        fun isBBFormat(blinds: String): Boolean{
+            var patt = "^\\d+\\/\\d+\$".toRegex()
+            return  patt.matches(blinds)
+        }
+
+        fun formatedHistoryBlindToArray(mises: String): List<String>{
+            val valuesString = mises.split("/")
+            return valuesString.map { it }
+        }
 
         fun formatedHistoryMiseToArray(mises: String): List<String>{
             val valuesString = mises.split("|")
@@ -97,7 +108,75 @@ class HelperHistory {
                     "da" -> response.add(R.drawable.da)
                     "n" -> response.add(R.drawable.blue_back)
                 }
+                when(card){
+                    "2c" -> response.add(R.drawable.c2)
+                    "3c" -> response.add(R.drawable.c3)
+                    "4c" -> response.add(R.drawable.c4)
+                    "5c" -> response.add(R.drawable.c5)
+                    "6c" -> response.add(R.drawable.c6)
+                    "7c" -> response.add(R.drawable.c7)
+                    "8c" -> response.add(R.drawable.c8)
+                    "9c" -> response.add(R.drawable.c9)
+                    "10c" -> response.add(R.drawable.c10)
+                    "jc" -> response.add(R.drawable.cj)
+                    "qc" -> response.add(R.drawable.cq)
+                    "kc" -> response.add(R.drawable.ck)
+                    "ac" -> response.add(R.drawable.ca)
+                    "2d" -> response.add(R.drawable.d2)
+                    "3d" -> response.add(R.drawable.d3)
+                    "4d" -> response.add(R.drawable.d4)
+                    "5d" -> response.add(R.drawable.d5)
+                    "6d" -> response.add(R.drawable.d6)
+                    "7d" -> response.add(R.drawable.d7)
+                    "8d" -> response.add(R.drawable.d8)
+                    "9d" -> response.add(R.drawable.d9)
+                    "10d" -> response.add(R.drawable.d10)
+                    "jd" -> response.add(R.drawable.dj)
+                    "qd" -> response.add(R.drawable.dq)
+                    "kd" -> response.add(R.drawable.dk)
+                    "ad" -> response.add(R.drawable.da)
+                }
+                when(card){
+                    "2s" -> response.add(R.drawable.s2)
+                    "3s" -> response.add(R.drawable.s3)
+                    "4s" -> response.add(R.drawable.s4)
+                    "5s" -> response.add(R.drawable.s5)
+                    "6s" -> response.add(R.drawable.s6)
+                    "7s" -> response.add(R.drawable.s7)
+                    "8s" -> response.add(R.drawable.s8)
+                    "9s" -> response.add(R.drawable.s9)
+                    "10s" -> response.add(R.drawable.s10)
+                    "js" -> response.add(R.drawable.sj)
+                    "qs" -> response.add(R.drawable.sq)
+                    "ks" -> response.add(R.drawable.sk)
+                    "as" -> response.add(R.drawable.sa)
+                    "2h" -> response.add(R.drawable.h2)
+                    "3h" -> response.add(R.drawable.h3)
+                    "4h" -> response.add(R.drawable.h4)
+                    "5h" -> response.add(R.drawable.h5)
+                    "6h" -> response.add(R.drawable.h6)
+                    "7h" -> response.add(R.drawable.h7)
+                    "8h" -> response.add(R.drawable.h8)
+                    "9h" -> response.add(R.drawable.h9)
+                    "10h" -> response.add(R.drawable.h10)
+                    "jh" -> response.add(R.drawable.hj)
+                    "qh" -> response.add(R.drawable.hq)
+                    "kh" -> response.add(R.drawable.hk)
+                    "ah" -> response.add(R.drawable.ha)
+                }
+                when(card) {
+                    "ts" -> response.add(R.drawable.s10)
+                    "th" -> response.add(R.drawable.h10)
+                    "tc" -> response.add(R.drawable.c10)
+                    "td" -> response.add(R.drawable.d10)
+                    "st" -> response.add(R.drawable.s10)
+                    "ht" -> response.add(R.drawable.h10)
+                    "dt" -> response.add(R.drawable.d10)
+                    "ct" -> response.add(R.drawable.c10)
+                }
             }
+            if(response.isEmpty())
+                response.add(R.drawable.blue_back)
             return response
         }
 

@@ -39,9 +39,9 @@
     <string name="raise">Raise</string>
     <string name="one_if_bb">(1 si en bb)</string>
     <string name="two_to_nine">2 - 9</string>
-    <string name="nb_players">Joueurs</string>
-    <string name="big_blind">Big blind</string>
-    <string name="type_game">Type de jeu</string>
+    <string name="nb_players">Joueurs*</string>
+    <string name="big_blind">sb/bb*</string>
+    <string name="type_game">Type de jeu*</string>
     <string name="validate">Valider</string>
 
 </resources>

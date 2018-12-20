@@ -1,11 +1,11 @@
 package com.example.thomasperrin.pokerhh.ui.newhand.pickcard
 
-import android.app.Activity
 import android.os.Bundle
-import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.text.Editable
+import android.text.TextWatcher
+import android.view.*
+import androidx.lifecycle.Observer
+import com.afollestad.materialdialogs.MaterialDialog
 import com.example.thomasperrin.pokerhh.R
 import com.example.thomasperrin.pokerhh.ui.BaseFragment
 import com.example.thomasperrin.pokerhh.ui.newhand.NewHandActivity
@@ -27,6 +27,7 @@ class PickCardFragment: BaseFragment(), PickCardInteractor {
     lateinit var mModel: PickCardViewModel
 
     lateinit var rootView: View
+    var mat: MaterialDialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,106 +36,79 @@ class PickCardFragment: BaseFragment(), PickCardInteractor {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         rootView = inflater.inflate(R.layout.fragment_pick_card, container, false)
+        mModel.flop1.observe(this, Observer<Int>{ board.card1.setImageResource(it) })
+        mModel.flop2.observe(this, Observer<Int>{ board.card2.setImageResource(it) })
+        mModel.flop3.observe(this, Observer<Int>{ board.card3.setImageResource(it) })
+        mModel.turn.observe(this, Observer<Int>{ board.card4.setImageResource(it) })
+        mModel.river.observe(this, Observer<Int>{ board.card5.setImageResource(it) })
         return rootView
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        (activity as NewHandActivity).mModel.history.board = mModel.getHistoryBoard()
-
-        heart.setOnClickListener { mModel.setColorSelected(it.id) }
-        spade.setOnClickListener { mModel.setColorSelected(it.id) }
-        clover.setOnClickListener { mModel.setColorSelected(it.id) }
-        diamond.setOnClickListener { mModel.setColorSelected(it.id) }
-
-        two.setOnClickListener { mModel.setCardSelected(it.tag as Int) }
-        three.setOnClickListener { mModel.setCardSelected(it.tag as Int) }
-        four.setOnClickListener { mModel.setCardSelected(it.tag as Int) }
-        five.setOnClickListener { mModel.setCardSelected(it.tag as Int) }
-        six.setOnClickListener { mModel.setCardSelected(it.tag as Int) }
-        seven.setOnClickListener { mModel.setCardSelected(it.tag as Int) }
-        height.setOnClickListener { mModel.setCardSelected(it.tag as Int) }
-        nine.setOnClickListener { mModel.setCardSelected(it.tag as Int) }
-        ten.setOnClickListener { mModel.setCardSelected(it.tag as Int) }
-        jack.setOnClickListener { mModel.setCardSelected(it.tag as Int) }
-        queen.setOnClickListener { mModel.setCardSelected(it.tag as Int) }
-        king.setOnClickListener { mModel.setCardSelected(it.tag as Int) }
-        aces.setOnClickListener { mModel.setCardSelected(it.tag as Int) }
-
-        previous.setOnClickListener {
-            if(gridCard.visibility == View.VISIBLE){
-                gridColor.visibility = View.VISIBLE
-                gridCard.visibility = View.GONE
-            } else
-                mModel.previousClick()
-        }
-        finish.setOnClickListener { mModel.validate() }
 
         container.setOnClickListener { onBack() }
 
+        textCard1.addTextChangedListener(textChangeListener(1))
+        textCard2.addTextChangedListener(textChangeListener(2))
+        textCard3.addTextChangedListener(textChangeListener(3))
+        textCard4.addTextChangedListener(textChangeListener(4))
+        textCard5.addTextChangedListener(textChangeListener(5))
+
+    }
+
+    private fun textChangeListener(pos: Int):TextWatcher{
+        return object : TextWatcher {
+            override fun afterTextChanged(p0: Editable?) {
+                if(p0.toString().length in 2..3){
+                    if(!mModel.setCardSelected(p0.toString(),pos)){
+                        mModel.setBlueCard(pos)
+                        mat = MaterialDialog(context!!).show {
+                            title(text = "Ah...")
+                            message(text = "Cette carte est déjà utilisée !!")
+                        }
+                    }
+                } else {
+                    mModel.setBlueCard(pos)
+                }
+            }
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+        }
+    }
+
+
+    override fun onBack() {
+        if(mModel.canValidate()) {
+            (activity!! as NewHandActivity).mModel.board.value =
+                    "${textCard1.text}|${textCard2.text}|${textCard3.text}|${textCard4.text}|${textCard5.text}"
+            (activity!! as NewHandActivity).supportFragmentManager.popBackStack()
+        } else {
+            mat = MaterialDialog(context!!).show {
+                title(text = "Ah...")
+                message(text = "Le board n'est pas valide !!")
+            }
+        }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.validate -> {
+                onBack()
+            }
+        }
+        return true
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_pick_card, menu)
     }
 
     override fun validate() {
-        (activity!! as NewHandActivity).mModel.history.board = mModel.getHistoryBoard()
-        onBack()
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun onColorSelected() {
-        Log.e("HERE","SETIMAGES")
-        two.setImageResource(mModel.cardsDisplaying[0])
-        three.setImageResource(mModel.cardsDisplaying[1])
-        four.setImageResource(mModel.cardsDisplaying[2])
-        five.setImageResource(mModel.cardsDisplaying[3])
-        six.setImageResource(mModel.cardsDisplaying[4])
-        seven.setImageResource(mModel.cardsDisplaying[5])
-        height.setImageResource(mModel.cardsDisplaying[6])
-        nine.setImageResource(mModel.cardsDisplaying[7])
-        ten.setImageResource(mModel.cardsDisplaying[8])
-        jack.setImageResource(mModel.cardsDisplaying[9])
-        queen.setImageResource(mModel.cardsDisplaying[10])
-        king.setImageResource(mModel.cardsDisplaying[11])
-        aces.setImageResource(mModel.cardsDisplaying[12])
-        
-        two.tag = (mModel.cardsDisplaying[0])
-        three.tag = mModel.cardsDisplaying[1]
-        four.tag = mModel.cardsDisplaying[2]
-        five.tag = mModel.cardsDisplaying[3]
-        six.tag = mModel.cardsDisplaying[4]
-        seven.tag = mModel.cardsDisplaying[5]
-        height.tag = mModel.cardsDisplaying[6]
-        nine.tag = mModel.cardsDisplaying[7]
-        ten.tag = mModel.cardsDisplaying[8]
-        jack.tag = mModel.cardsDisplaying[9]
-        queen.tag = mModel.cardsDisplaying[10]
-        king.tag = mModel.cardsDisplaying[11]
-        aces.tag = mModel.cardsDisplaying[12]
-
-        gridColor.visibility = View.GONE
-        gridCard.visibility = View.VISIBLE
-    }
-
-    override fun onCardSelected() {
-        when(mModel.cards.size){
-            1 -> card1.setImageResource(mModel.cardDisplaying)
-            2 -> card2.setImageResource(mModel.cardDisplaying)
-            3 -> card3.setImageResource(mModel.cardDisplaying)
-            4 -> card4.setImageResource(mModel.cardDisplaying)
-            5 -> card5.setImageResource(mModel.cardDisplaying)
-        }
-        gridColor.visibility = View.VISIBLE
-        gridCard.visibility = View.GONE
-    }
-
-    override fun onBack() {
-        (activity!! as NewHandActivity).supportFragmentManager.popBackStack()
-    }
-
-    override fun onCardRemove() {
-        when(mModel.cards.size){
-            0 -> card1.setImageResource(R.drawable.blue_back)
-            1 -> card2.setImageResource(R.drawable.blue_back)
-            2 -> card3.setImageResource(R.drawable.blue_back)
-            3 -> card4.setImageResource(R.drawable.blue_back)
-            4 -> card5.setImageResource(R.drawable.blue_back)
-        }
-    }
 }

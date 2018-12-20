@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp"
+        android:layout_margin="5dp">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="10dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/avatar"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:foregroundTint="@color/background_grey"
+                    app:srcCompat="@drawable/ic_profil"/>
+
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/namePlayer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Thomas Perrin"
+                        android:textStyle="bold"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/more"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Gagné / Perdu / Entrainement"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/backgroundCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"/>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/card1"
+                        android:layout_width="53dp"
+                        android:layout_height="80dp"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/card2"
+                        android:layout_width="53dp"
+                        android:layout_height="80dp"
+                        android:layout_alignLeft="@id/card1"
+                        android:layout_marginLeft="10dp"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <TextView
+                android:id="@+id/description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:paddingTop="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux "/>
+
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                    android:id="@+id/see"
+                    style="@style/Widget.MaterialComponents.Button.TextButton.Dialog"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:text="Voir"/>
+
+            <com.google.android.material.button.MaterialButton
+                    android:id="@+id/delete"
+                    style="@style/Widget.MaterialComponents.Button.TextButton.Dialog"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:text="Supprimer"/>
+
+            <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="1dp"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/like"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginRight="20dp"
+                    app:srcCompat="@drawable/like"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/share"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginRight="10dp"
+                    app:srcCompat="@drawable/share"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

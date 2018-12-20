@@ -1,6 +1,7 @@
 package com.example.thomasperrin.pokerhh.ui.newhand.flow
 
 import android.content.Context
+import android.util.Log
 import com.example.thomasperrin.pokerhh.data.model.History
 import com.example.thomasperrin.pokerhh.ui.BaseViewModel
 import com.example.thomasperrin.pokerhh.utils.HelperHistory
@@ -70,6 +71,12 @@ class HistoryFlowViewModel @Inject constructor(val context: Context): BaseViewMo
             getInteractor()!!.finish()
             return
         }
+        if((step == 1 && HelperHistory.getImageHand(history!!.board!!).size < 3)
+            || step == 2 && HelperHistory.getImageHand(history!!.board!!).size < 4
+            || step == 3 && HelperHistory.getImageHand(history!!.board!!).size < 5){
+            getInteractor()!!.finish()
+            return
+        }
         step++
         priceMin=0
         curPosInList=0
@@ -101,6 +108,7 @@ class HistoryFlowViewModel @Inject constructor(val context: Context): BaseViewMo
 
     fun getPosByCurrentPosInList(position: Int, step: Int): Int{
         val realPosInList = position%nbPlayer
+        Log.e("Vérification","$position || $step || $nbPlayer || $realPosInList")
         var listPosName: ArrayList<Int> = arrayListOf()
         listPosName = if(step == 0){
             HelperHistory.getPlayersSuitePreFlop(nbPlayer)
@@ -142,7 +150,7 @@ class HistoryFlowViewModel @Inject constructor(val context: Context): BaseViewMo
         return if(step==0){
             curPosInList
         } else {
-            curPosInList-2
+            curPosInList
         }
     }
 

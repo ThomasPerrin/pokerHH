@@ -9,96 +9,250 @@
         android:background="@color/white"
         tools:context=".ui.main.MainActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="10dp">
+            android:fillViewport="true">
 
         <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="10dp">
 
-            <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_margin="5dp"
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/two_to_nine"
-                    app:labelText="@string/nb_players">
+                    android:textSize="20sp"
+                    android:textStyle="italic"
+                    android:text="Données :"/>
 
-                <studio.carbonylgroup.textfieldboxes.ExtendedEditText
-                        android:id="@+id/numberPlayer"
-                        android:layout_width="wrap_content"
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical">
+
+                <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content">
+
+                    <androidx.appcompat.widget.SwitchCompat
+                            android:id="@+id/isWin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            app:switchPadding="5dp"
+                            android:text="Win"/>
+
+                </FrameLayout>
+
+                <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content">
+
+                    <androidx.appcompat.widget.SwitchCompat
+                            android:id="@+id/isPrivate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:switchPadding="5dp"
+                            android:layout_gravity="center"
+                            android:text="Public"/>
+
+                </FrameLayout>
+
+                <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content">
+
+                    <androidx.appcompat.widget.SwitchCompat
+                            android:id="@+id/isTraining"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:switchPadding="5dp"
+                            android:layout_gravity="center"
+                            android:text="Training"/>
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_margin="5dp"
                         android:layout_height="wrap_content"
-                        android:inputType="number"/>
+                        android:hint="@string/two_to_nine"
+                        app:labelText="@string/nb_players">
 
-            </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
+                    <studio.carbonylgroup.textfieldboxes.ExtendedEditText
+                            android:id="@+id/numberPlayer"
+                            android:layout_width="wrap_content"
+                            android:textSize="12sp"
+                            android:imeOptions="actionNext"
+                            android:maxLines="1"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"/>
 
-            <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_margin="5dp"
+                </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
+
+                <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_margin="5dp"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/one_if_bb"
+                        app:labelText="@string/big_blind">
+
+                    <studio.carbonylgroup.textfieldboxes.ExtendedEditText
+                            android:id="@+id/blindes"
+                            android:layout_width="wrap_content"
+                            android:maxLines="1"
+                            android:imeOptions="actionNext"
+                            android:textSize="12sp"
+                            android:inputType="text"
+                            android:layout_height="wrap_content"/>
+
+                </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
+
+                <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
+                        android:id="@+id/anteContainer"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_margin="5dp"
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:layout_height="wrap_content"
+                        android:hint="0"
+                        app:labelText="Ante">
+
+                    <studio.carbonylgroup.textfieldboxes.ExtendedEditText
+                            android:id="@+id/ante"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:imeOptions="actionNext"
+                            android:maxLines="1"
+                            android:inputType="number"
+                            android:textSize="12sp"/>
+
+                </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/one_if_bb"
-                    app:labelText="@string/big_blind">
+                    android:orientation="horizontal">
 
-                <studio.carbonylgroup.textfieldboxes.ExtendedEditText
-                        android:id="@+id/blindes"
-                        android:layout_width="wrap_content"
-                        android:textSize="12sp"
-                        android:layout_height="wrap_content"/>
+                <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
+                        android:id="@+id/typeContainer"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_margin="5dp"
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/one_if_bb"
+                        app:labelText="@string/type_game">
 
-            </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
+                    <studio.carbonylgroup.textfieldboxes.ExtendedEditText
+                            android:id="@+id/type_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:imeOptions="actionNext"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:textSize="12sp"/>
+
+                </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
+
+                <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
+                        android:id="@+id/keywordsContainer"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_margin="5dp"
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:layout_height="wrap_content"
+                        android:hint="postflop|hard|..."
+                        app:labelText="Mot clés">
+
+                    <studio.carbonylgroup.textfieldboxes.ExtendedEditText
+                            android:id="@+id/keywords"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:imeOptions="actionNext"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:textSize="12sp"/>
+
+                </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
+
+            </LinearLayout>
 
             <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
-                    android:id="@+id/typeContainer"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
+                    android:id="@+id/descriptionContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:focusable="true"
                     android:clickable="true"
-                    android:layout_height="wrap_content"
                     android:hint="@string/one_if_bb"
-                    app:labelText="@string/type_game">
+                    app:labelText="Description">
 
                 <studio.carbonylgroup.textfieldboxes.ExtendedEditText
-                        android:id="@+id/type_text"
+                        android:id="@+id/description"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:enabled="false"
+                        android:inputType="text"
+                        android:imeOptions="actionDone"
                         android:textSize="12sp"/>
 
             </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
 
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:textStyle="italic"
+                        android:text="Histoire : "/>
+
+                <com.example.thomasperrin.pokerhh.components.Board
+                        android:id="@+id/board"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/action"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:background="@drawable/background_white_rounded_stroke_primary"
+                        android:text="GO ACTION"/>
+
+            </LinearLayout>
+
         </LinearLayout>
 
-        <androidx.constraintlayout.widget.Guideline
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/guideline"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.5"/>
-
-        <com.google.android.material.button.MaterialButton
-                android:id="@+id/board"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:text="GO BOARD"/>
-
-        <com.google.android.material.button.MaterialButton
-                android:id="@+id/action"
-                app:layout_constraintTop_toBottomOf="@+id/board"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="GO ACTION"/>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
 
     <FrameLayout

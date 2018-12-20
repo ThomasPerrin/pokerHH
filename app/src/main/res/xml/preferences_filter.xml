@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appx.preference.PreferenceScreen
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory
+        app:key="filter_general"
+        app:title="Général">
+
+    <SwitchPreference
+            app:key="@string/finish"
+            app:title="Auto Sync"
+            app:summary="@string/finish"
+            app:icon="@drawable/ic_filter_primary"/>
+    <CheckBoxPreference
+            app:defaultValue="false"
+            app:key="prefSync"
+            app:title="Auto Sync"
+            app:icon="@drawable/ic_filter_primary"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+            app:key="filter_hands"
+            app:title="Mains">
+
+        <SwitchPreference
+                app:key="training"
+                app:title="Seulement les entrainements"/>
+
+        <EditTextPreference
+                app:key="max_people"
+                app:dependency="training"
+                app:title="Seulement les entrainements"
+                app:useSimpleSummaryProvider="true"/>
+
+    </PreferenceCategory>
+
+</appx.preference.PreferenceScreen>

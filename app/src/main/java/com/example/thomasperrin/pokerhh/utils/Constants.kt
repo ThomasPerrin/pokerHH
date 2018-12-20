@@ -2,9 +2,8 @@ package com.example.thomasperrin.pokerhh.utils
 
 import com.example.thomasperrin.pokerhh.R
 
-class Constants {
+object Constants {
 
-    companion object {
 
         fun getDiamondCards() = arrayListOf(
                 R.drawable.d2,
@@ -77,5 +76,4 @@ class Constants {
                 R.drawable.spade
             )
 
-    }
 }

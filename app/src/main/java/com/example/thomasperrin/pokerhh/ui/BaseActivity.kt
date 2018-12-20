@@ -10,4 +10,5 @@ open class BaseActivity: AppCompatActivity() {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
     }
+
 }

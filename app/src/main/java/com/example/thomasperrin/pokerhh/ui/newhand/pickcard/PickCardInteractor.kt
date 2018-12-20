@@ -4,12 +4,6 @@ interface PickCardInteractor {
 
     fun validate()
 
-    fun onColorSelected()
-
-    fun onCardSelected()
-
-    fun onCardRemove()
-
     fun onBack()
 
 }
